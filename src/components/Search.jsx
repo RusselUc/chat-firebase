@@ -70,20 +70,26 @@ const Search = () => {
   };
 
   return (
-    <div className="search">
-      <div className="searchForm">
-        <input
-          type="text"
-          placeholder="Buscar un usuario"
-          onKeyDown={handleKey}
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
-        />
+    <div className="search w-full">
+      <div className="searchForm w-full">
+        <div className="flex items-center w-full justify-between">
+          <input
+            className=" h-10 outline-none text-xl rounded-lg p-2"
+            type="text"
+            placeholder="Buscar un usuario"
+            onKeyDown={handleKey}
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+          />
+        <span className="text-5xl text-white cursor-pointer hover:text-[#8da4f1]" onClick={() => handleSearch()}>
+          <ion-icon name="search-circle-sharp"></ion-icon>
+        </span>
+        </div>
         {err && <span>Usuario no encontrado</span>}
         {user && (
-          <div className="userChat" onClick={handleSelect}>
-            <img src={user.photoURL} alt="" />
-            <div className="userChatInfo">
+          <div className="flex justify-around items-center cursor-pointer hover:bg[#8da4f1]" onClick={handleSelect}>
+            <img className="h-[50px] w-[50px]" src={user.photoURL} alt="" />
+            <div className="text-white text-xl">
               <span>{user.displayName}</span>
             </div>
           </div>

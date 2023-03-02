@@ -69,15 +69,15 @@ const Input = () => {
   };
 
   return (
-    <div className="input">
+    <div className="flex items-center px-2 gap-5 ">
       <input
+        className="text-xl w-[65%] md:w-[80%] py-3 outline-none flex flex-wrap"
         type="text"
-        placeholder="Mensaje"
+        placeholder="Escribe un mensaje..."
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
-      <div className="send">
-        <img src={attach} alt="" />
+      <div className="flex w-[28%] md:w-[20%] gap-5 md:gap-10">
         <input
           style={{ display: "none" }}
           type="file"
@@ -85,9 +85,16 @@ const Input = () => {
           onChange={(e) => setImg(e.target.files[0])}
         />
         <label htmlFor="file">
-          <img src={image} alt="" />
+          <span className="text-white text-4xl flex">
+          <ion-icon name="image-sharp"></ion-icon>
+          </span>
         </label>
-        <button onClick={() => handleSend()}>Enviar</button>
+        <button
+          className="bg-[#0079ff] rounded-lg text-white py-1 px-4 text-2xl items-center flex"
+          onClick={() => handleSend()}
+        >
+          <ion-icon name="send-sharp"></ion-icon>
+        </button>
       </div>
     </div>
   );

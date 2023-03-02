@@ -15,9 +15,11 @@ const Message = ({ message }) => {
   return (
     <div
       ref={ref}
-      className={`message ${message.senderId === currentUser.uid && "owner"}`}
+      className={`px-4 message flex gap-5 mb-3 ${
+        message.senderId === currentUser.uid ? "flex-row-reverse" : ""
+      }`}
     >
-      <div className="messageInfo">
+      {/* <div className="messageInfo">
         <img
           src={
             message.senderId === currentUser.uid
@@ -27,10 +29,21 @@ const Message = ({ message }) => {
           alt=""
         />
         <span>just now</span>
-      </div>
-      <div className="messageContent">
-        <p>{message.text}</p>
-        {message.img && <img src={message.img} alt="" />}
+      </div> */}
+      <div
+        className={`max-w-[80%] flex flex-col gap-1
+        ${message.senderId === currentUser.uid && "items-end"}`}
+      >
+        <p
+          className={`max-w-max rounded-b-xl px-2 py-3 ${
+            message.senderId === currentUser.uid
+              ? "bg-[#8da4f1] rounded-tl-xl"
+              : "bg-white  rounded-tr-xl"
+          }`}
+        >
+          {message.text}
+        </p>
+        {message.img && <img className="w-1/2" src={message.img} alt="" />}
       </div>
     </div>
   );

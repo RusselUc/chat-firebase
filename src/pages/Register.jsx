@@ -56,22 +56,22 @@ const Register = () => {
     }
   };
   return (
-    <div className="formContainer">
-      <div className="formWrapper">
-        <span className="logo">Chat</span>
-        <span className="title">Register</span>
-        <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Nombre usuario" />
-          <input type="email" placeholder="correo" />
-          <input type="password" placeholder="contraseña" />
+    <div className="bg-[#141D2F] flex h-screen justify-center items-center">
+      <div className="flex flex-col justify-center mx-10 items-center bg-white rounded-2xl p-12 md:p-20">
+        <span className="text-2xl font-bold">Chat</span>
+        <span className="text-lg">Register</span>
+        <form onSubmit={handleSubmit} className="flex flex-col w-full justify-center items-center gap-4 mt-4">
+          <input className="border-none bg-[#F6F8FF] p-3 w-[250px] rounded-lg" type="text" placeholder="Nombre usuario" />
+          <input className="border-none bg-[#F6F8FF] p-3 w-[250px] rounded-lg" type="email" placeholder="correo" />
+          <input className="border-none bg-[#F6F8FF] p-3 w-[250px] rounded-lg" type="password" placeholder="contraseña" />
           <input style={{ display: "none" }} type="file" id="file" />
-          <label htmlFor="file">
+          <label className="flex items-center border-none bg-[#F6F8FF] p-3 w-[250px] rounded-lg" htmlFor="file">
             <img src={add} alt="" />
             <span>Añadir un avatar</span>
           </label>
-          <button>Sign up</button>
+          <button className="mt-4 p-3 bg-[#658cd7] rounded-xl text-white">Sign up</button>
         </form>
-        <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
+        <p>¿Ya tienes una cuenta? <Link className="text-[#2e5fa5]" to="/login">Iniciar sesión</Link></p>
       </div>
     </div>
   );

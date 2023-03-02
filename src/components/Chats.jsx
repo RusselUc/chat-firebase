@@ -8,7 +8,7 @@ const Chats = () => {
   const [chats, setChats] = useState([]);
 
   const { currentUser } = useContext(AuthContext);
-  const { dispatch } = useContext(ChatContext);
+  const { dispatch, setOpen } = useContext(ChatContext);
 
   useEffect(() => {
     const getChats = () => {
@@ -26,6 +26,7 @@ const Chats = () => {
 
   const handleSelect = (u) => {
     dispatch({ type: "CHANGE_USER", payload: u });
+    setOpen(false);
   };
 
   return (
@@ -34,14 +35,17 @@ const Chats = () => {
         ?.sort((a, b) => b[1].date - a[1].date)
         .map((chat) => (
           <div
-            className="userChat"
+            className="flex p-2 items-center gap-2 text-white cursor-pointer hover:bg-[#8da4f1]"
             key={chat[0]}
             onClick={() => handleSelect(chat[1].userInfo)}
           >
-            <img src={chat[1].userInfo.photoURL} alt="" />
+            {/* {chat[1].userInfo.photoURL} */}
+            {/* <img className="h-[50px] w-[50px] object-cover" src={chat[1].userInfo.photoURL} alt="" /> */}
             <div className="userChatInfo">
-              <span>{chat[1].userInfo.displayName}</span>
-              <p>{chat[1].lastMessage?.text}</p>
+              <span className="font-bold text-xl">
+                {chat[1].userInfo.displayName}
+              </span>
+              <p className="text-md">{chat[1].lastMessage?.text}</p>
             </div>
           </div>
         ))}

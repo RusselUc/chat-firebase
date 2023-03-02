@@ -6,15 +6,18 @@ import { auth } from "../firebase";
 const Navbar = () => {
   const {currentUser} = useContext(AuthContext)
   return (
-    <div className="navbar">
-      <span className="logo">Chat</span>
-      <div className="user">
+    <div className="text-white flex flex-col">
+      <span className="text-3xl text-center">Chats</span>
+      <div className="flex items-center justify-around">
         <img
+          className="w-10 h-10 rounded-full object-cover"
           src={currentUser.photoURL}
           alt=""
         />
         <span>{currentUser.displayName}</span>
-        <button onClick={() => signOut(auth)}>Cerrar sesión</button>
+        <button className="text-3xl" onClick={() => signOut(auth)}>
+          <ion-icon name="log-out-sharp"></ion-icon>
+        </button>
       </div>
     </div>
   );
