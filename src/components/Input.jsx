@@ -71,7 +71,7 @@ const Input = () => {
   return (
     <div className="flex items-center px-2 gap-5 ">
       <input
-        className="text-xl w-[65%] md:w-[80%] py-3 outline-none flex flex-wrap"
+        className="text-xl w-[65%] md:w-[80%] py-3 outline-none flex flex-wrap px-3"
         type="text"
         placeholder="Escribe un mensaje..."
         onChange={(e) => setText(e.target.value)}
